@@ -1,12 +1,10 @@
 package dev.nioritos.CadastroDeNinjas;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
+import jakarta.persistence.*;
+//just other comment to amend on git
 @Entity
 //ele transforma a classe em uma interface do banco de dados
+@Table(name = "tb_cadastro")
 public class NinjaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
