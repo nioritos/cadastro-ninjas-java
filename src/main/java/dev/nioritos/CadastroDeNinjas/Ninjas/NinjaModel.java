@@ -1,10 +1,16 @@
-package dev.nioritos.CadastroDeNinjas;
+package dev.nioritos.CadastroDeNinjas.Ninjas;
 
+import dev.nioritos.CadastroDeNinjas.Missoes.MissoesModel;
 import jakarta.persistence.*;
+
+import java.util.ArrayList;
+import java.util.List;
+
 //just other comment to amend on git
 @Entity
 //ele transforma a classe em uma interface do banco de dados
 @Table(name = "tb_cadastro")
+//nomeia a tabela para o banco de dados
 public class NinjaModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -12,6 +18,9 @@ public class NinjaModel {
     private String nome;
     private String email;
     private int idade;
+    @ManyToOne()
+    @JoinColumn(name = "missoes_id")
+    private MissoesModel missoes;
 
 
     public NinjaModel(String nome, String email, int idade) {
