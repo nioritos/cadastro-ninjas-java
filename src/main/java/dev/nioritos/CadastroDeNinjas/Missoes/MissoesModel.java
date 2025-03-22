@@ -2,10 +2,15 @@ package dev.nioritos.CadastroDeNinjas.Missoes;
 
 import dev.nioritos.CadastroDeNinjas.Ninjas.NinjaModel;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
-
+@NoArgsConstructor
+@AllArgsConstructor
+@Data
 @Entity
 @Table(name = "tb_missoes")
 public class MissoesModel {
@@ -15,32 +20,5 @@ public class MissoesModel {
     private String missao;
     private String dificuldade;
     @OneToMany()
-
     private List<NinjaModel> ninjas;
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getMissao() {
-        return missao;
-    }
-
-    public void setMissao(String missao) {
-        this.missao = missao;
-    }
-
-    public String getDificuldade() {
-        return dificuldade;
-    }
-
-    public void setDificuldade(String dificuldade) {
-        this.dificuldade = dificuldade;
-    }
-
-
-
 }
