@@ -20,8 +20,8 @@ public class MissoesController {
         return missoesServices.listarMissoes();
     };
 
-    @GetMapping("listar/{id}")
+    @GetMapping("/listar/{id}")
     public MissoesModel listarMissoesId(@PathVariable Long id) {
-        return 
+        return missoesServices.listarMissoesId(id);
     }
 }
