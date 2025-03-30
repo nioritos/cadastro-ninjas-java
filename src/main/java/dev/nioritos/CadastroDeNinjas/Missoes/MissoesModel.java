@@ -8,6 +8,8 @@ import lombok.NoArgsConstructor;
 
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity //ele transforma a classe em uma interface do banco de dados
 @Table(name = "tb_missoes") //nomeia a tabela para o banco de dados
 @NoArgsConstructor //lombox faz o contrutor sem valor
@@ -24,6 +26,7 @@ public class MissoesModel {
     private String dificuldade;
     @Column(name = "ninjas")// nomeia a coluna
     @OneToMany() //diz q o tipo de relacionamento é 1 missao para muitos ninjas
+    @JsonIgnore
     private List<NinjaModel> ninjas;
 
 }
