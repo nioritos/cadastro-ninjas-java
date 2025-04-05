@@ -22,7 +22,7 @@ public class Controller {
     @GetMapping("/listar")
     public List<NinjaModel> listarNinjas() {
         return ninjaService.listarNinjas();
-    }
+    };
 
     @GetMapping("/listar/{id}")
     public NinjaModel listarNinjaPorID(@PathVariable Long id) {
@@ -35,7 +35,7 @@ public class Controller {
 
     }
     @PutMapping("/alterarNinja/{id}")
-    public NinjaModel alterarNinja(@PathVariable long id,@RequestBody NinjaModel ninja) {
+    public NinjaModel alterarNinja(@PathVariable Long id,@RequestBody NinjaModel ninja) {
        return ninjaService.atualizarNinja(id, ninja);
     };
 

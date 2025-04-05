@@ -22,6 +22,17 @@ public class MissoesServices {
         return missoesModel.orElse(null);
     };
 
+    public void criarMissao(MissoesModel missao) {
+        missoesRepository.save(missao);
+    };
 
+    public MissoesModel alterarMissao(Long id, MissoesModel missao) {
+        if(missoesRepository.existsById(id)) {
+            missao.setId(id);
+            missoesRepository.save(missao);
+        };
+
+        return null;
+    }
 
 }
