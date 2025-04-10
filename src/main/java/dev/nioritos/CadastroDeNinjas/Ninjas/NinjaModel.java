@@ -26,6 +26,7 @@ public class NinjaModel {
     @ManyToOne() //diz q o tipo de relacionamento é muitos ninjas para uma missao
     @JoinColumn(name = "missoes_id") //insere uma coluna "estrangeira" conectiva na table ninja
     private MissoesModel missoes;
+    private String rank;
 
 
 

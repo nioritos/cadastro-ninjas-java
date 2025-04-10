@@ -27,7 +27,7 @@ public class NinjaService {
     }
 
     public void deletarNinja(Long id) {
-        ninjaRepository.deleteById(id);
+        ninjaRepository.deleteById(id); 
     }
 
     public NinjaModel atualizarNinja(Long id, NinjaModel ninja) {
