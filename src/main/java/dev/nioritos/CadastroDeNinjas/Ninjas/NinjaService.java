@@ -9,7 +9,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 @Service //indica que é um modulo de service para o controller.
 public class NinjaService {
     NinjaRepository ninjaRepository; 
-    public NinjaService(NinjaRepository ninjaRepository) {
+    NinjaMapper ninjaMapper;
+    
+    public NinjaService(NinjaMapper ninjaMapper, NinjaRepository ninjaRepository) {
+        this.ninjaMapper = ninjaMapper;
         this.ninjaRepository = ninjaRepository;
     }
     public List<NinjaModel> listarNinjas() {
@@ -22,8 +25,10 @@ public class NinjaService {
         return ninjaPorId.orElse(null);
     }
 
-    public NinjaModel criarNinja(NinjaModel ninja) {
-        return ninjaRepository.save(ninja);
+    public NinjaDto criarNinja(NinjaDto ninjadto) {
+        NinjaModel ninja = ninjaMapper.toDTO(ninjadto);
+        ninja = ninjaRepository.save(ninja);
+        return ninjaMapper.toMODEL(ninja);
     }
 
     public void deletarNinja(Long id) {

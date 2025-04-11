@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class Controller {
 
     NinjaService ninjaService;
-    public Controller(NinjaService ninjaService) {
+    NinjaMapper ninjaMapper;
+    public Controller(NinjaService ninjaService, NinjaMapper ninjaMapper) {
         this.ninjaService = ninjaService;
+        this.ninjaMapper = ninjaMapper;
     }
 
     @GetMapping("/listar")
@@ -30,7 +32,7 @@ public class Controller {
     };
 
     @PostMapping("criar")
-    public NinjaModel criarNinja(@RequestBody NinjaModel ninja) {
+    public NinjaDto criarNinja(@RequestBody NinjaDto ninja) {
         return ninjaService.criarNinja(ninja);
 
     }
